@@ -19,13 +19,17 @@ module Fyber
     end
 
     def offers
-      return [] if error? || no_content?
+      return [] if error? || no_content? || !body.has_key?('offers')
 
-      body['offers']
+      body['offers'].map do |offer_data|
+        Offer.new(offer_data)
+      end
     end
 
-    def app_name
-      body['information'] && body['information']['app_name']
+    def app
+      return if !body.has_key?('information')
+
+      App.new(body['information'])
     end
 
     private

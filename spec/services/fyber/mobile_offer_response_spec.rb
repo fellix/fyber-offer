@@ -54,7 +54,8 @@ describe Fyber::MobileOfferResponse do
       subject = described_class.new(HTTPI.get(url))
       expect(subject.success?).to eq true
       expect(subject.offers.size).to eq 1
-      expect(subject.app_name).to eq 'SP Test App'
+      expect(subject.offers.first.title).to eq 'Tap  Fish'
+      expect(subject.app.app_name).to eq 'SP Test App'
     end
   end
 end
