@@ -1,0 +1,28 @@
+<h1>Offers</h1>
+
+<%= form_tag offers_path do %>
+  <div class="row">
+    <div class="col-md-3">
+      <div class="form-group">
+        <%= label_tag 'uid', 'uid' %>
+        <%= text_field_tag 'uid', params[:uid], class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class="col-md-8">
+      <div class="form-group">
+        <%= label_tag 'pub0', 'Optional data' %>
+        <%= text_field_tag 'pub0', params[:pub0], class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class="col-md-1">
+      <div class="form-group">
+        <%= label_tag 'page', 'Page' %>
+        <%= text_field_tag 'page', params[:page], class: 'form-control' %>
+      </div>
+    </div>
+  </div>
+
+  <%= submit_tag 'Search', class: 'btn btn-primary btn-lg' %>
+<% end %>

@@ -1,0 +1,30 @@
+<h1><%= @app.app_name %></h1>
+
+<%= link_to 'Support', @app.support_url, class: 'btn btn-success' %>
+
+<% if @offers.empty? %>
+  <div class="alert alert-danger" role="alert">
+    No offers available
+  </div>
+<% else %>
+  <% @offers.in_groups_of(3, false) do |group| %>
+    <div class="row">
+      <% group.each do |offer| %>
+        <div class="col-md-4">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title"><%= link_to offer.title, offer.link %></h3>
+            </div>
+            <div class="panel-body">
+              <p><%= offer.teaser %></p>
+
+              <%= image_tag offer.thumbnail['lowres'] %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+<% end %>
+
+<%= link_to 'Go back', offers_path, class: 'btn btn-default' %>

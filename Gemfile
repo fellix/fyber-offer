@@ -32,7 +32,10 @@ group :development, :test do
   gem 'rspec-rails'
 end
 
-gem "fakeweb", "~> 1.3", group: :test
+group :test do
+  gem "fakeweb", "~> 1.3"
+  gem 'rails-controller-testing'
+end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.

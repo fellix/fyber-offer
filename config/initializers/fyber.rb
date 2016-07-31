@@ -5,5 +5,6 @@ Fyber.config do |config|
   config.locale = 'de'
   config.ip = '109.235.143.113'
   config.offer_types = 112
+
   config.api_key = 'b07a12df7d52e6c118e5d47d3f9e60135b109a1f'
 end
